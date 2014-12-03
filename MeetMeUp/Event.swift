@@ -12,4 +12,8 @@ import Foundation
 class Event {
     var name: String = ""
     var address: String = ""
+    var headcount: Int = 0
+    var groupName: String = ""
+    var description: String = ""
+    var eventURL: String = ""
 }

@@ -22,7 +22,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,7 +44,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
 
             self.events = self.parseData(data)
-            println(self.events)
+
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()
             })
@@ -67,11 +66,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         for jsonEvent in jsonEvents {
             let event = Event()
             event.name = jsonEvent["name"] as String
+            event.description = jsonEvent["description"] as String
+            event.eventURL = jsonEvent["event_url"] as String
 
             if let venue = jsonEvent["venue"] as? [String: AnyObject] {
                 event.address = venue["address_1"] as String
             }
-            println(jsonEvent)
             events.append(event)
         }
         return events
@@ -85,7 +85,5 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         }
     }
-
-
 }
 
