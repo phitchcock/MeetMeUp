@@ -72,6 +72,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return events
     }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showSegue" {
+            if let row = tableView.indexPathForSelectedRow()?.row {
+                let destinationViewController = segue.destinationViewController as ShowViewController
+                destinationViewController.event = events[row]
+            }
+        }
+    }
+
 
 }
 

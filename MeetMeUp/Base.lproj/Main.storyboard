@@ -62,10 +62,10 @@
             </objects>
             <point key="canvasLocation" x="691" y="402"/>
         </scene>
-        <!--View Controller-->
+        <!--Show View Controller-->
         <scene sceneID="hpH-cL-Qmd">
             <objects>
-                <viewController id="RXl-1S-Qg1" sceneMemberID="viewController">
+                <viewController id="RXl-1S-Qg1" customClass="ShowViewController" customModule="MeetMeUp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gvr-uJ-J8m"/>
                         <viewControllerLayoutGuide type="bottom" id="4d0-MQ-vJo"/>
@@ -73,9 +73,28 @@
                     <view key="view" contentMode="scaleToFill" id="oql-Qe-R8n">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8QH-Xm-gFI">
+                                <rect key="frame" x="16" y="72" width="288" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="7sa-Cz-9nH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8QH-Xm-gFI" firstAttribute="trailing" secondItem="oql-Qe-R8n" secondAttribute="trailingMargin" id="8Ab-VG-6gf"/>
+                            <constraint firstItem="8QH-Xm-gFI" firstAttribute="top" secondItem="gvr-uJ-J8m" secondAttribute="bottom" constant="8" id="R30-GS-IW6"/>
+                            <constraint firstItem="8QH-Xm-gFI" firstAttribute="leading" secondItem="oql-Qe-R8n" secondAttribute="leadingMargin" id="cUm-gj-QV4"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xG6-rQ-vBc"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="8QH-Xm-gFI" id="Wyp-uK-aOX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LES-aU-1QR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
