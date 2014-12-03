@@ -32,6 +32,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
         cell.textLabel?.text = events[indexPath.row].name
+        cell.detailTextLabel?.text = events[indexPath.row].address
         return cell
     }
 
@@ -67,6 +68,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let event = Event()
             event.name = jsonEvent["name"] as String
 
+            if let venue = jsonEvent["venue"] as? [String: AnyObject] {
+                event.address = venue["address_1"] as String
+            }
+            println(jsonEvent)
             events.append(event)
         }
         return events

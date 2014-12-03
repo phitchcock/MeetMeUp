@@ -11,4 +11,5 @@ import Foundation
 
 class Event {
     var name: String = ""
+    var address: String = ""
 }
